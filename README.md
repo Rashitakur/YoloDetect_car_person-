@@ -1,5 +1,8 @@
 ﻿# YoloDetect
-
+streamlit
+ultralytics
+opencv-python
+Pillow
 # 🚗👤 YOLOv8 Car & Person Detection App
 
 This Streamlit app uses a YOLOv8 model trained to detect cars and persons in images.
