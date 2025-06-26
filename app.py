@@ -50,29 +50,28 @@ This demo lets you upload an image and instantly run object detection on it usin
 </div>
 """, unsafe_allow_html=True)
 
-# Load model
+# Load YOLOv8 model
 model = YOLO(r"C:\Users\HP\DETECTION\DETECTION\Yolo detect\best.pt")
-
 
 # Upload section
 uploaded_file = st.file_uploader("📤 Upload an Image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    # Show original image
+    # Show uploaded image
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="📷 Uploaded Image", use_container_width=True)
+    st.image(image, caption="📷 Uploaded Image")
 
     # Convert to NumPy array
     image_np = np.array(image)
 
-    # Run inference
+    # Run detection
     results = model(image_np)
 
-    # Get annotated image with boxes
+    # Plot predictions
     annotated_img = results[0].plot()
 
-    # Show results
-    st.image(annotated_img, caption="✅ Detected Objects", use_container_width=True)
+    # Display detection
+    st.image(annotated_img, caption="✅ Detected Objects")
 
     # Download button
     st.download_button(
@@ -81,4 +80,3 @@ if uploaded_file is not None:
         file_name='result.jpg',
         mime='image/jpeg'
     )
-
