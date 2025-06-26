@@ -51,18 +51,7 @@ This demo lets you upload an image and instantly run object detection on it usin
 """, unsafe_allow_html=True)
 
 # Load model
-model = YOLO(r"C:\Users\HP\DETECTION\DETECTION\Yolo detect\runs\detect\car_person_model2\weights\best.pt")
-import os
-from ultralytics import YOLO
-
-# Download the model once
-if not os.path.exists("best.pt"):
-    import urllib.request
-    url = "https://YOUR_LINK_TO/best.pt"
-    urllib.request.urlretrieve(url, "best.pt")
-
-# Load model
-model = YOLO("best.pt")
+model = YOLO(r"C:\Users\HP\DETECTION\DETECTION\Yolo detect\best.pt")
 
 
 # Upload section
